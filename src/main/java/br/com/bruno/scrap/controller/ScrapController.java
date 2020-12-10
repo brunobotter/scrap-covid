@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.bruno.scrap.model.Dados;
-import br.com.bruno.scrap.service.DadosService;
+import br.com.bruno.scrap.model.Data;
+import br.com.bruno.scrap.service.DataService;
 
 
 @RestController
@@ -18,11 +18,11 @@ import br.com.bruno.scrap.service.DadosService;
 public class ScrapController {
 
 	@Autowired
-	private DadosService dadosService;
+	private DataService dataService;
 	
 	@GetMapping
-	public ResponseEntity<List<Dados>> listar() throws IOException{
-		List<Dados> dados = dadosService.listarTodos();
+	public ResponseEntity<List<Data>> listar() throws IOException{
+		List<Data> dados = dataService.findAll();
 		return ResponseEntity.ok(dados);
 	}
 	
